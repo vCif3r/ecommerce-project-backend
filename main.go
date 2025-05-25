@@ -19,9 +19,6 @@ func main() {
 		log.Fatalf("Failed to initialize database: %v", err)
 	}
 
-	// Inicializar Redis (opcional para cache)
-	// redisClient := cache.NewRedisClient(cfg)
-
 	// Configurar router
 	router := gin.Default()
 
@@ -35,9 +32,6 @@ func main() {
 		handlers.RegisterCategoryRoutes(api, db)
 		handlers.RegisterProductImageRoutes(api, db)
 		handlers.RegisterAuthRoutes(api, db)
-		//handlers.RegisterUserRoutes(api, db)
-		//handlers.RegisterOrderRoutes(api, db)
-		//handlers.RegisterAuthRoutes(api, db, cfg.JWTSecret)
 	}
 
 	// Iniciar servidor
